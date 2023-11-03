@@ -9,10 +9,24 @@ class Node<T> {
 }
 
 class ECSource {
-  public static <T> T getNodeValue(Node<T> head, int index) {
+  public static <T> T getNodeValue(Node<T> head, int index) 
+  {
     // todo - note the return type, but don't overthink it
-    return;
+    int count = 0;
+    while (count < index) 
+    {
+      count++;  
+      head = head.next;
+      if(head == null)
+      {
+        return null;
+      }
+    }
+
+    return head.val;
   }
+
+
   
   public static void main(String[] args) {
     Node<String> node1 = new Node<>("banana");
@@ -24,6 +38,6 @@ class ECSource {
 
     // banana -> mango -> kiwi
 
-    System.out.println(ECSource.getNodeValue(node1, 1));
+    System.out.println(ECSource.getNodeValue(node1, 5));
   }
 }
